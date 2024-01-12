@@ -27,5 +27,5 @@ class MainActivity : ReactActivity() {
     super.onCreate(null)
   }
   // ...
-  }
 }
+
