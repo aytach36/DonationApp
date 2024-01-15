@@ -3,6 +3,7 @@ import {View, SafeAreaView, Text} from 'react-native';
 
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
+import Badge from '../../components/Badge/Badge';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
@@ -20,6 +21,7 @@ const Home = () => {
       /> */}
       <Tab title={'Highlight'} />
       <Tab title={'Highlight'} isInactive={true} />
+      <Badge title={'Environment'} />
     </SafeAreaView>
   );
 };
