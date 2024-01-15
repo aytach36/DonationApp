@@ -16,7 +16,7 @@ const Badge = props => {
   };
 
   return (
-    <View disabled={props.isInactive} style={[style.badge, badgeWidth]}>
+    <View style={[style.badge, badgeWidth]}>
       <Text
         onTextLayout={event => {
           setWidth(event.nativeEvent.lines[0].width);
