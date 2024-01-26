@@ -10,11 +10,11 @@ export const User = createSlice({
   name: 'user',
   initialState: initialState,
   reducers: {
-    updatingFirstName: (state, action) => {
+    updateFirstName: (state, action) => {
       state.firstName = action.payload.firstName;
     },
   },
 });
 
-export const {updatingFirstName} = User.actions;
+export const {updateFirstName} = User.actions;
 export default User.reducer;
