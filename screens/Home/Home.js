@@ -13,13 +13,14 @@ import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
 import Header from '../../components/Header/Header';
 import Search from '../../components/Search/Search';
+import {FlatList} from 'react-native-gesture-handler';
+import Tab from '../../components/Tab/Tab';
+import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
 
 const Home = () => {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
-
-  console.log(categories);
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
@@ -48,6 +49,26 @@ const Home = () => {
             resizeMode={'contain'}
           />
         </Pressable>
+        <View style={style.categoryHeader}>
+          <Header title={'Select category'} type={2} />
+        </View>
+        <View style={style.categories}>
+          <FlatList
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            data={categories.categories}
+            renderItem={({item}) => (
+              <View style={style.categoryItem} key={item.categoryId}>
+                <Tab
+                  tabId={item.categoryId}
+                  onPress={value => dispatch(updateSelectedCategoryId(value))}
+                  title={item.name}
+                  isInactive={item.categoryId !== categories.selectedCategoryId}
+                />
+              </View>
+            )}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
