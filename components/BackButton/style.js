@@ -3,8 +3,12 @@ import {horizontalScale, verticalScale} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   container: {
-    marginHorizontal: horizontalScale(20),
-    marginTop: verticalScale(7),
+    backgroundColor: '#fafafa',
+    height: horizontalScale(44),
+    width: horizontalScale(44),
+    borderRadius: horizontalScale(26),
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
