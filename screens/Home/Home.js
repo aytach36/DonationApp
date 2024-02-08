@@ -22,10 +22,19 @@ const Home = () => {
   const user = useSelector(state => state.user);
   const donations = useSelector(state => state.donations);
   const dispatch = useDispatch();
+
+  const [donationItems, setDonationItems] = useState([]);
   const [categoryPage, setCategoryPage] = useState(1);
   const [categoryList, setCategoryList] = useState([]);
   const [isLoadingCategories, setIsLoadingCategories] = useState(false);
   const categoryPageSize = 4;
+
+  useEffect(() => {
+    const items = donations.items.filter(value =>
+      value.categoryIds.includes(categories.selectedCategoryId),
+    );
+    setDonationItems(items);
+  }, [categories.selectedCategoryId]);
 
   useEffect(() => {
     setIsLoadingCategories(true);
@@ -45,8 +54,6 @@ const Home = () => {
     return items.slice(startIndex, endIndex);
   };
 
-  console.log(donations);
-  console.log('User', user);
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <ScrollView showsVerticalScrollIndicator={false}>
