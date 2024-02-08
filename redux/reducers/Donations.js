@@ -203,7 +203,8 @@ const initialState = {
       price: '13.83',
     },
   ],
-  updateSelectedDonationId: null,
+  selectedDonationId: null,
+  selectedDonationInformation: {},
 };
 
 const Donations = createSlice({
@@ -214,7 +215,10 @@ const Donations = createSlice({
       return initialState;
     },
     updateSelectedDonationId: (state, action) => {
-      state.updateSelectedDonationId = action.payload;
+      state.selectedDonationId = action.payload;
+      state.selectedDonationInformation = state.items.find(
+        item => item.donationItemId === action.payload,
+      );
     },
   },
 });
