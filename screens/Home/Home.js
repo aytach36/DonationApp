@@ -16,6 +16,7 @@ import Search from '../../components/Search/Search';
 import {FlatList} from 'react-native-gesture-handler';
 import Tab from '../../components/Tab/Tab';
 import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
+import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
 
 const Home = () => {
   const categories = useSelector(state => state.categories);
@@ -119,6 +120,27 @@ const Home = () => {
             )}
           />
         </View>
+        {donationItems.length > 0 && (
+          <View style={style.donationItemsConatiner}>
+            {donationItems.map(value => (
+              <SingleDonationItem
+                onPress={selectedDonationId => {
+                  console.log(selectedDonationId);
+                }}
+                donationItemId={value.donationItemId}
+                key={value.donationItemId}
+                uri={value.image}
+                badgeTitle={
+                  categories.categories.filter(
+                    val => val.categoryId === categories.selectedCategoryId,
+                  )[0].name
+                }
+                donationTitle={value.name}
+                price={parseFloat(value.price)}
+              />
+            ))}
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
