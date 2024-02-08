@@ -20,6 +20,7 @@ import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
 const Home = () => {
   const categories = useSelector(state => state.categories);
   const user = useSelector(state => state.user);
+  const donations = useSelector(state => state.donations);
   const dispatch = useDispatch();
   const [categoryPage, setCategoryPage] = useState(1);
   const [categoryList, setCategoryList] = useState([]);
@@ -44,6 +45,8 @@ const Home = () => {
     return items.slice(startIndex, endIndex);
   };
 
+  console.log(donations);
+  console.log('User', user);
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <ScrollView showsVerticalScrollIndicator={false}>
