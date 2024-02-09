@@ -124,25 +124,30 @@ const Home = ({navigation}) => {
         </View>
         {donationItems.length > 0 && (
           <View style={style.donationItemsContainer}>
-            {donationItems.map(value => (
-              <View key={value.donationItemId} style={style.singleDonationItem}>
-                <SingleDonationItem
-                  onPress={selectedDonationId => {
-                    dispatch(updateSelectedDonationId(selectedDonationId));
-                    navigation.navigate(Routes.SingleDonationItem);
-                  }}
-                  donationItemId={value.donationItemId}
-                  uri={value.image}
-                  badgeTitle={
-                    categories.categories.filter(
-                      val => val.categoryId === categories.selectedCategoryId,
-                    )[0].name
-                  }
-                  donationTitle={value.name}
-                  price={parseFloat(value.price)}
-                />
-              </View>
-            ))}
+            {donationItems.map(value => {
+              const categoryInformation = categories.categories.find(
+                val => val.categoryId === categories.selectedCategoryId,
+              );
+              return (
+                <View
+                  key={value.donationItemId}
+                  style={style.singleDonationItem}>
+                  <SingleDonationItem
+                    onPress={selectedDonationId => {
+                      dispatch(updateSelectedDonationId(selectedDonationId));
+                      navigation.navigate(Routes.SingleDonationItem, {
+                        categoryInformation,
+                      });
+                    }}
+                    donationItemId={value.donationItemId}
+                    uri={value.image}
+                    badgeTitle={categoryInformation.name}
+                    donationTitle={value.name}
+                    price={parseFloat(value.price)}
+                  />
+                </View>
+              );
+            })}
           </View>
         )}
       </ScrollView>
