@@ -14,3 +14,23 @@ export const createUser = async (fullName, email, password) => {
     return {error: 'Somethng went wrong with your request'};
   }
 };
+
+export const loginUser = async (email, password) => {
+  try {
+    const response = await auth().signInWithEmailAndPassword(email, password);
+    const token = await response.user.getIdToken();
+    return {
+      status: true,
+      data: {
+        displayName: response.user.displayName,
+        email: response.user.email,
+        token,
+      },
+    };
+  } catch (error) {
+    if (error.code === 'auth/invalid-credential') {
+      return {status: false, error: 'The email or the password is wrong'};
+    }
+    return {status: false, error: 'Something went wrong'};
+  }
+};

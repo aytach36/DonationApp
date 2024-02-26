@@ -71,7 +71,7 @@ const Registration = ({navigation}) => {
                 setError('');
                 setSuccess('You have successfully registered');
                 setTimeout(() => {
-                  navigation.navigate(Routes.goBack());
+                  navigation.goBack();
                 }, 3000);
               }
             }}
