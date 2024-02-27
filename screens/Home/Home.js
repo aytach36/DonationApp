@@ -26,6 +26,8 @@ const Home = ({navigation}) => {
   const donations = useSelector(state => state.donations);
   const dispatch = useDispatch();
 
+  console.log(user);
+
   const [donationItems, setDonationItems] = useState([]);
   const [categoryPage, setCategoryPage] = useState(1);
   const [categoryList, setCategoryList] = useState([]);
@@ -65,7 +67,7 @@ const Home = ({navigation}) => {
             <Text style={style.headerIntrotext}>Hello, </Text>
 
             <View style={style.username}>
-              <Header title={user.firstName + ' ' + user.lastName[0] + '.👋'} />
+              <Header title={user.displayName + ' 👋'} />
             </View>
           </View>
           <Image
