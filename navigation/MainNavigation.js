@@ -15,11 +15,6 @@ export const NonAuthenticated = () => {
       screenOptions={{header: () => null, headerShown: false}}>
       <Stack.Screen name={Routes.Login} component={Login} />
       <Stack.Screen name={Routes.Registration} component={Registration} />
-      <Stack.Screen name={Routes.Home} component={Home} />
-      <Stack.Screen
-        name={Routes.SingleDonationItem}
-        component={SingleDonationItem}
-      />
     </Stack.Navigator>
   );
 };

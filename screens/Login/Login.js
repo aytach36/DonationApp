@@ -8,9 +8,9 @@ import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 
 import {Routes} from '../../navigation/Routes';
-import {loginUser} from '../../api/user';
 import {useDispatch} from 'react-redux';
 import {logIn, resetToInitialState} from '../../redux/reducers/User';
+import {loginUser} from '../../api/user';
 
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');

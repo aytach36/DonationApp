@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Pressable, SafeAreaView, ScrollView, View, Text} from 'react-native';
+import {SafeAreaView, ScrollView, View, Text} from 'react-native';
 
 import style from './style';
 import globalStyle from '../../assets/styles/globalStyle';
@@ -7,7 +7,6 @@ import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 
-import {Routes} from '../../navigation/Routes';
 import BackButton from '../../components/BackButton/BackButton';
 import {createUser} from '../../api/user';
 
