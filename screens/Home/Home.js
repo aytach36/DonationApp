@@ -28,8 +28,6 @@ const Home = ({navigation}) => {
   const donations = useSelector(state => state.donations);
   const dispatch = useDispatch();
 
-  console.log(user);
-
   const [donationItems, setDonationItems] = useState([]);
   const [categoryPage, setCategoryPage] = useState(1);
   const [categoryList, setCategoryList] = useState([]);

@@ -8,6 +8,7 @@ import BackButton from '../../components/BackButton/BackButton';
 import Badge from '../../components/Badge/Badge';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
+import {Routes} from '../../navigation/Routes';
 
 const SingleDonationItem = ({navigation, route}) => {
   const donationItemInformation = useSelector(
@@ -33,7 +34,12 @@ const SingleDonationItem = ({navigation, route}) => {
         </Text>
       </ScrollView>
       <View style={style.button}>
-        <Button title={'Donate'} onPress={() => {}} />
+        <Button
+          title={'Donate'}
+          onPress={() => {
+            navigation.navigate(Routes.Payment);
+          }}
+        />
       </View>
     </SafeAreaView>
   );
