@@ -8,6 +8,10 @@ const style = StyleSheet.create({
     marginTop: verticalScale(12),
   },
   buttonContainer: {marginHorizontal: horizontalScale(24)},
+  cardForm: {
+    height: verticalScale(240),
+    marginTop: verticalScale(12),
+  },
 });
 
 export default style;

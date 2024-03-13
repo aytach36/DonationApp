@@ -6,10 +6,12 @@ import store, {persistor} from './redux/store';
 import {PersistGate} from 'redux-persist/integration/react';
 import RootNavigation from './navigation/RootNavigation';
 import {checkToken} from './api/user';
+import {updatePublishableKey} from './redux/reducers/Donations';
 
 const App = () => {
   const appState = useRef(AppState.currentState);
   useEffect(() => {
+    store.dispatch(updatePublishableKey(process.env.STRIPE_PUBLISHABLE_KEY));
     // console.log(AppState.currentState);
     const subscrription = AppState.addEventListener(
       'change',

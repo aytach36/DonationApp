@@ -205,6 +205,7 @@ const initialState = {
   ],
   selectedDonationId: null,
   selectedDonationInformation: {},
+  publishableKey: null,
 };
 
 const Donations = createSlice({
@@ -220,8 +221,12 @@ const Donations = createSlice({
         item => item.donationItemId === action.payload,
       );
     },
+    updatePublishableKey: (state, action) => {
+      state.publishableKey = action.payload;
+    },
   },
 });
 
-export const {resetDonations, updateSelectedDonationId} = Donations.actions;
+export const {resetDonations, updateSelectedDonationId, updatePublishableKey} =
+  Donations.actions;
 export default Donations.reducer;
